@@ -125,11 +125,16 @@ export class CdkOWStack extends cdk.Stack {
         integration,
       });
 
-      new lambda.CfnPermission(this, `${path}InvokePermission`, {
-        action: 'lambda:InvokeFunction',
-        functionName: fn.functionName,
-        principal: 'apigateway.amazonaws.com',
-        sourceArn: `arn:aws:execute-api:${this.region}:${this.account}:${httpApi.httpApiId}/*/GET${path}`,
+      //new lambda.CfnPermission(this, `${path}InvokePermission`, {
+      //  action: 'lambda:InvokeFunction',
+      //  functionName: fn.functionName,
+      //  principal: 'apigateway.amazonaws.com',
+      //  sourceArn: arn:aws:execute-api:${this.region}:${this.account}:${httpApi.httpApiId}/*/GET${path},
+      //});
+      httpApi.addRoutes({
+        path,
+        methods: [apigw.HttpMethod.GET],
+        integration,
       });
     };
 
