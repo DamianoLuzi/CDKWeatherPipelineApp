@@ -80,8 +80,8 @@ export class CdkOWStack extends cdk.Stack {
 
     const currentWeatherFn = makeLambda('CurrentWeather', 'current-weather', 10);
     const forecastWeatherFn = makeLambda('ForecastWeather', 'forecast-weather', 10);
-    const pollutionCurrentFn = makeLambda('AirPollutionCurrent', 'current-airpollution', 10);
-    const pollutionForecastFn = makeLambda('AirPollutionForecast', 'forecast-airpollution', 10);
+    const pollutionCurrentFn = makeLambda('CurrentAirPollution', 'current-airpollution', 10);
+    const pollutionForecastFn = makeLambda('ForecastAirPollution', 'forecast-airpollution', 10);
 
     // 4. EventBridge Rule + Role
     const schedulerRole = new iam.Role(this, 'OpenWeatherSchedulerRole', {
