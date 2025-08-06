@@ -14,6 +14,7 @@ import {
   Duration
 } from 'aws-cdk-lib';
 import * as path from 'path';
+import { RetentionDays } from 'aws-cdk-lib/aws-logs';
 
 
 export class CdkOWStack extends cdk.Stack {
@@ -74,6 +75,7 @@ export class CdkOWStack extends cdk.Stack {
         timeout: Duration.seconds(timeoutSec),
         architecture: lambda.Architecture.ARM_64,
         functionName: id,
+        logRetention: RetentionDays.TWO_YEARS
       });
     };
 
