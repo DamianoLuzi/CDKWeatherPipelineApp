@@ -15,8 +15,8 @@ export class CdkPipelineStack extends cdk.Stack {
         ), */
         input: CodePipelineSource.connection(
           'DamianoLuzi/CDKWeatherPipelineApp','main',{
-            //connectionArn: 'arn:aws:codeconnections:us-east-1:718579638605:connection/f3b44eaa-8aed-44d6-a0cf-b8186048d4e6',
-            connectionArn:'arn:aws:codeconnections:us-east-1:718579638605:connection/1974752b-8e15-4617-b501-a1b51663d36e',
+            connectionArn: 'arn:aws:codeconnections:us-east-1:718579638605:connection/500ced3a-c591-4bad-9545-b6d2b66de1c3',
+            //connectionArn:'arn:aws:codeconnections:us-east-1:718579638605:connection/1974752b-8e15-4617-b501-a1b51663d36e',
             triggerOnPush: true
           }
         ),
