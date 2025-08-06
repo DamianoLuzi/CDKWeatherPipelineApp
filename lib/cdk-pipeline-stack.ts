@@ -29,6 +29,11 @@ export class CdkPipelineStack extends cdk.Stack {
       crossAccountKeys: false, // Set to true if you need cross-account deployments
     });
 
+    pipeline.addStage(
+        new PipelineStage(
+        this, 'DEV', {env: { account: '718579638605', region: 'us-east-1' }})
+    )
+
 }
 }
 
