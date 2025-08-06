@@ -129,13 +129,8 @@ export class CdkOWStack extends cdk.Stack {
       //  action: 'lambda:InvokeFunction',
       //  functionName: fn.functionName,
       //  principal: 'apigateway.amazonaws.com',
-      //  sourceArn: arn:aws:execute-api:${this.region}:${this.account}:${httpApi.httpApiId}/*/GET${path},
+      //  sourceArn: `arn:aws:execute-api:${this.region}:${this.account}:${httpApi.httpApiId}/*/GET${path}`,
       //});
-      httpApi.addRoutes({
-        path,
-        methods: [apigw.HttpMethod.GET],
-        integration,
-      });
     };
 
     addRoute('/weather/current', currentWeatherFn);
