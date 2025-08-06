@@ -75,7 +75,6 @@ export class CdkOWStack extends cdk.Stack {
         timeout: Duration.seconds(timeoutSec),
         architecture: lambda.Architecture.ARM_64,
         functionName: id,
-        logRetention: RetentionDays.TWO_YEARS
       });
     };
 
