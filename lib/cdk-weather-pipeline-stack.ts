@@ -66,7 +66,7 @@ export class CdkOWStack extends cdk.Stack {
 
     // 3. Lambda Function Factory
     const makeLambda = (id: string, filename: string, timeoutSec: number) => {
-      return new lambda.Function(this, id, {
+      const fn = new lambda.Function(this, id, {
         runtime: lambda.Runtime.PYTHON_3_13,
         handler: `${filename}.lambda_handler`,
         code: lambda.Code.fromAsset(`lambda/${filename}`),
@@ -76,6 +76,11 @@ export class CdkOWStack extends cdk.Stack {
         architecture: lambda.Architecture.ARM_64,
         functionName: id,
       });
+        new cdk.aws_logs.LogGroup(this, `${id}LogGroup`, {
+        logGroupName: `/aws/lambda/${id}`,
+        removalPolicy: cdk.RemovalPolicy.DESTROY,
+      });
+      return fn;
     };
 
     const currentWeatherFn = makeLambda('CurrentWeather', 'current-weather', 10);
