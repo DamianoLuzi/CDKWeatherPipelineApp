@@ -16,7 +16,7 @@ import {
 import * as path from 'path';
 
 
-export class CdkWeatherPipelineStack extends cdk.Stack {
+export class CdkOWStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
