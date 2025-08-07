@@ -74,7 +74,7 @@ export class CdkOWStack extends cdk.Stack {
         role: lambdaRole,
         timeout: Duration.seconds(timeoutSec),
         architecture: lambda.Architecture.ARM_64,
-        functionName: id,
+        functionName: `${this.stackName}-${id}`,
       });
         new cdk.aws_logs.LogGroup(this, `${id}LogGroup`, {
         logGroupName: `/aws/lambda/${this.stackName}-${id}`,
