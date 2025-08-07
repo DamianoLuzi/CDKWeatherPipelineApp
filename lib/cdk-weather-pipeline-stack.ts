@@ -77,7 +77,7 @@ export class CdkOWStack extends cdk.Stack {
         functionName: id,
       });
         new cdk.aws_logs.LogGroup(this, `${id}LogGroup`, {
-        logGroupName: `/aws/lambda/${id}`,
+        logGroupName: `/aws/lambda/${this.stackName}-${id}`,
         removalPolicy: cdk.RemovalPolicy.DESTROY,
       });
       return fn;
